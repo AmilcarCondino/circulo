@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\Module;
 
-class ProjectRequest extends Request
+class ModuleRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class ProjectRequest extends Request
      */
     public function authorize()
     {
-        return TRUE;
+        return true;
     }
 
     /**
@@ -23,15 +24,13 @@ class ProjectRequest extends Request
      */
     public function rules()
     {
-
-        $rules = [
-
-            'name' => 'unique:projects,name|required|min:3',
-            'projected_total_modules' => 'required|numeric',
+        return [
+            //
+            'name' => 'required',
             'projected_total_pages' => 'required|numeric',
-
+            'project_id' => 'required_if:parent_module_id,0',
+            'parent_module_id' => 'required_without:project_id'
         ];
-
-        return $rules;
     }
+
 }

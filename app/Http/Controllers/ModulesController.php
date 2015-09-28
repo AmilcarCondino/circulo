@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Project;
+use PhpParser\Node\Expr\AssignOp\Mod;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use App\Module;
+use App\Http\Requests\ModuleRequest;
 
 class ModulesController extends Controller
 {
@@ -16,6 +21,10 @@ class ModulesController extends Controller
     public function index()
     {
         //
+        $modules = Module::orderBy('created_at', 'ASC')->get();
+
+        return view('modules.index', compact('modules'));
+
     }
 
     /**
@@ -26,6 +35,12 @@ class ModulesController extends Controller
     public function create()
     {
         //
+
+        $projects_list = array( '0' => 'Seleccione un Proyecto') + Project::lists('name', 'id')->all();
+        $parents_module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
+
+        return view('modules.create', compact('projects_list', 'parents_module_list'));
+
     }
 
     /**
@@ -34,9 +49,14 @@ class ModulesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ModuleRequest $request)
     {
         //
+        $input = Request::all();
+
+        Module::create($input);
+
+        return redirect('modulos');
     }
 
     /**
@@ -59,6 +79,12 @@ class ModulesController extends Controller
     public function edit($id)
     {
         //
+        $module = Module::findOrFail($id);
+
+        $projects_list = array( '0' => 'Seleccione un Proyecto') + Project::lists('name', 'id')->all();
+        $parents_module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
+
+        return view('modules.edit', compact('module', 'projects_list', 'parents_module_list'));
     }
 
     /**
@@ -68,9 +94,16 @@ class ModulesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ModuleRequest $request, $id)
     {
         //
+        $module = Module::findOrFail($id);
+        $input = Request::all();
+
+
+        $module->update($input);
+
+        return redirect('modulos');
     }
 
     /**
@@ -82,5 +115,10 @@ class ModulesController extends Controller
     public function destroy($id)
     {
         //
+        $module = Module::findOrFail($id);
+
+        if ($module->delete()) {
+            return redirect('modulos');
+        }
     }
 }

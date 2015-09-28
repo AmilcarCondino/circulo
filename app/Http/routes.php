@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('home', 'HomeController@index');
 
 Route::resource('proyectos', 'ProjectsController');
+Route::resource('modulos', 'ModulesController');
+

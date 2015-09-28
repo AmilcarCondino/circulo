@@ -15,14 +15,14 @@ class CreateModulesTable extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('project_id')->unsigned();
-            $table->integer('parent_module_id');
+            $table->integer('project_id')->unsigned()->nullable();
+            $table->integer('parent_module_id')->nullable();
             $table->integer('projected_total_pages');
             $table->timestamps();
-
-            $table->foreign('project_id')
-                ->references('id')
-                ->on('projects');
+//
+//            $table->foreign('project_id')
+//                ->references('id')
+//                ->on('projects');
         });
     }
 

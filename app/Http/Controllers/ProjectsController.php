@@ -44,11 +44,9 @@ class ProjectsController extends Controller
     public function store(ProjectRequest $request)
     {
         //
-//        $input = Request::all();
-//
-//        Project::create($input);
+        $input = Request::all();
 
-        $project = $request->project()->create( $request->all() );
+        Project::create($input);
 
         return redirect('proyectos');
     }
@@ -85,7 +83,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectRequest $request, $id)
     {
         //
         $project = Project::findOrFail($id);

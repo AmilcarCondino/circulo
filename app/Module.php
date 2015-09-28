@@ -12,7 +12,6 @@ class Module extends Model
         'name',
         'project_id',
         'parent_module_id',
-        'father_module',
-        'projected_total_pages',
+        'projected_total_pages'
     ];
 }
