@@ -47,3 +47,13 @@
         </div>
     </div>
 </div>
+
+@if( $errors->any() )
+<hr/>
+<div class="alert alert-danger" role="alert">
+    <p><strong>Temporal error list</strong></p>
+    @foreach($errors->all() as $error)
+    <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif

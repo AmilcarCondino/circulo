@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Project;
+use App\Http\Requests\ProjectRequest;
 
 class ProjectsController extends Controller
 {
@@ -40,12 +41,14 @@ class ProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
         //
-        $input = Request::all();
+//        $input = Request::all();
+//
+//        Project::create($input);
 
-        Project::create($input);
+        $project = $request->project()->create( $request->all() );
 
         return redirect('proyectos');
     }
