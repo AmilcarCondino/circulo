@@ -19,4 +19,5 @@ Route::get('home', 'HomeController@index');
 
 Route::resource('proyectos', 'ProjectsController');
 Route::resource('modulos', 'ModulesController');
+Route::resource('paginas', 'PagesController');
 

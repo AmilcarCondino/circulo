@@ -12,6 +12,7 @@ class Page extends Model
         'page_number',
         'page_stage',
         'layout_stage',
+        'module_id',
         'notes'
     ];
 }

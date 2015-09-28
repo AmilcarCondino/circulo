@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Module;
+use PhpParser\Node\Expr\AssignOp\Mod;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Page;
+use App\Http\Requests\PageRequest;
 
 class PagesController extends Controller
 {
@@ -18,6 +21,9 @@ class PagesController extends Controller
     public function index()
     {
         //
+        $pages = Page::orderBy('page_number', 'ASC')->get();
+
+        return view('pages.index', compact('pages'));
     }
 
     /**
@@ -28,6 +34,8 @@ class PagesController extends Controller
     public function create()
     {
         //
+        $module_list = array( '0' => 'Seleccione un Modulo') + Module::lists('name', 'id')->all();
+        return view('pages.create', compact('module_list'));
     }
 
     /**
@@ -36,9 +44,14 @@ class PagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PageRequest $request)
     {
         //
+        $input = Request::all();
+
+        Page::create($input);
+
+        return redirect('paginas');
     }
 
     /**
@@ -50,6 +63,7 @@ class PagesController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -61,6 +75,12 @@ class PagesController extends Controller
     public function edit($id)
     {
         //
+        $page = Page::findOrFail($id);
+
+        $module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
+
+        return view('pages.edit', compact('page', 'module_list'));
+
     }
 
     /**
@@ -70,9 +90,16 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PageRequest $request, $id)
     {
         //
+        $page = Page::findOrFail($id);
+        $input = Request::all();
+
+
+        $page->update($input);
+
+        return redirect('paginas');
     }
 
     /**
@@ -84,5 +111,10 @@ class PagesController extends Controller
     public function destroy($id)
     {
         //
+        $page = Page::findOrFail($id);
+
+        if ($page->delete()) {
+            return redirect('paginas');
+        }
     }
 }
