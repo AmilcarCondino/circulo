@@ -14,11 +14,10 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('project_id')->unsigned();
-            $table->string('module_title')->nullable();
-            $table->boolean('is_orphan');
+            $table->integer('parent_module_id');
             $table->integer('projected_total_pages');
-            $table->integer('father_module')->nullable();
             $table->timestamps();
 
             $table->foreign('project_id')

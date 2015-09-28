@@ -17,6 +17,7 @@
                     <th>Autores</th>
                     <th>Modulos Principales Proyectados</th>
                     <th>Paginas Totales Proyectadas</th>
+                    <th>Formato</th>
                     <th>Formato Alternativo</th>
                     <th>Materiales Complementarios</th>
                     <th>Observaciones</th>
@@ -27,13 +28,13 @@
                 @foreach($projects as $project)
                 <tr>
                     <td>
-                        {{ $project->project_title }}
+                        {{ $project->name }}
                     </td>
                     <td>
                         {{ $project->authors }}
                     </td>
                     <td>
-                        {{ $project->projected_primary_total_modules }}
+                        {{ $project->projected_total_modules }}
                     </td>
                     <td>
                         {{ $project->projected_total_pages }}

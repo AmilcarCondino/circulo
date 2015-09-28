@@ -9,9 +9,9 @@ class Project extends Model
     //
     protected $fillable = [
 
-        'project_title',
+        'name',
         'authors',
-        'projected_primary_total_modules',
+        'projected_total_modules',
         'projected_total_pages',
         'format',
         'alternative_format',

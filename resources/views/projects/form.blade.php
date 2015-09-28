@@ -2,16 +2,16 @@
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-6">
-                {!! Form::label('project_title', 'Titulo: ') !!}
-                {!! Form::text('project_title', null, ['class' => 'validate']) !!}
+                {!! Form::label('name', 'Titulo: ') !!}
+                {!! Form::text('name', null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
                 {!! Form::label('authors', 'Autores: ') !!}
                 {!! Form::text('authors', null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::label('projected_primary_total_modules', 'Modulos Principales Proyectados: ') !!}
-                {!! Form::text('projected_primary_total_modules', null, ['class' => 'validate']) !!}
+                {!! Form::label('projected_total_modules', 'Modulos Principales Proyectados: ') !!}
+                {!! Form::text('projected_total_modules', null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
                 {!! Form::label('projected_total_pages', 'Paginas Totales Proyectadas: ') !!}
