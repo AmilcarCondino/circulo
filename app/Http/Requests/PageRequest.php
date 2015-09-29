@@ -27,7 +27,7 @@ class PageRequest extends Request
             //
             'page_number' => 'require',
             'module_id' => 'require',
-            
+
         ];
     }
 }
