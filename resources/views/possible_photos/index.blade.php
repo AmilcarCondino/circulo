@@ -13,30 +13,30 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Numero de pagina</th>
-                    <th>Modulo</th>
-                    <th>Estadio de la pagina</th>
-                    <th>Estadio de Diagramacion</th>
-                    <th>Observaciones</th>
+                    <th>Nombre</th>
+                    <th>Seleccionado</th>
+                    <th>Descargado</th>
+                    <th>URL</th>
+                    <th>Id de Imagen</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($possible_photos as $possible_photo)
                 <tr>
                     <td>
-                        {{ $possible_photo->possible_photo_number }}
+                        {{ $possible_photo->name }}
                     </td>
                     <td>
-                        {{ $possible_photo->module_id }}
+                        {{ $possible_photo->selected }}
                     </td>
                     <td>
-                        {{ $possible_photo->possible_photo_stage }}
+                        {{ $possible_photo->downloaded }}
                     </td>
                     <td>
-                        {{ $possible_photo->layout_stage }}
+                        {{ $possible_photo->url }}
                     </td>
                     <td>
-                        {{ $possible_photo->notes }}
+                        {{ $possible_photo->parent_image_id }}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'get', 'route' => ['fotos_posibles.edit', $possible_photo->id]]) !!}

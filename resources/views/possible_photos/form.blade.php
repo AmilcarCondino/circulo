@@ -5,26 +5,37 @@
                 {!! Form::label('name', 'Nombre: ') !!}
                 {!! Form::text('name', null, ['class' => 'validate']) !!}
             </div>
-            <div class="col-xs-4">
+            <div class="col-sm-6">
                 <p>Seleccionado</p>
-                <div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
-                    <label class="btn btn-default"><input type="radio" name="selected" value="1">
-                        <i class="fa fa-check"></i>
-                    </label>
-                    <label class="btn btn-default"><input type="radio" name="selected" value="0">
-                        <i class="fa fa-close"></i>
-                    </label>
+                <div class="col-sm-3">
+                    {!! Form::label('selected', 'Si: ') !!}
+                    {!! Form::radio('selected', '1'); !!}
+                </div>
+                <div class="col-sm-3">
+                    {!! Form::label('selected', 'No: ') !!}
+                    {!! Form::radio('selected', '0'); !!}
                 </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-sm-6">
                 <p>Descargado</p>
-                <div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
-                    <label class="btn btn-default"><input type="radio" name="downloaded" value="1">
-                        <i class="fa fa-check"></i>
-                    </label>
-                    <label class="btn btn-default"><input type="radio" name="downloaded" value="0">
-                        <i class="fa fa-close"></i>
-                    </label>
+                <div class="col-sm-3">
+                    {!! Form::label('downloaded', 'Si: ') !!}
+                    {!! Form::radio('downloaded', '1'); !!}
+                </div>
+                <div class="col-sm-3">
+                    {!! Form::label('downloaded', 'No: ') !!}
+                    {!! Form::radio('downloaded', '0'); !!}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <p>Rechazado</p>
+                <div class="col-sm-3">
+                    {!! Form::label('rejected', 'Si: ') !!}
+                    {!! Form::radio('rejected', '1'); !!}
+                </div>
+                <div class="col-sm-3">
+                    {!! Form::label('rejected', 'No: ') !!}
+                    {!! Form::radio('rejected', '1'); !!}
                 </div>
             </div>
             <div class="col-sm-6">
@@ -32,7 +43,7 @@
                 {!! Form::text('url', null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::label('parent_image_id', 'Projecto Master: ') !!}
+                {!! Form::label('parent_image_id', 'Imagen Master: ') !!}
                 {!! Form::select('parent_image_id', $images_list, null, ['class' => 'validate']) !!}
             </div>
         <div class="col-sm-6">

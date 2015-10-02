@@ -7,11 +7,11 @@
 </div>
 
 <div class="col-sm-12">
-    <a href="/paginas">paginas index</a>
+    <a href="/fotos_posibles">fotos pocibles index</a>
 
     <div class="col-sm-12">
-        {!! Form::model($page,array('method' => 'PATCH', 'route' => ['paginas.update', $page->id])) !!}
-            @include('pages.form', ['submitButtonText' => 'Editar Pagina'])
+        {!! Form::model($possible_photos,array('method' => 'PATCH', 'route' => ['fotos_posibles.update', $possible_photos->id])) !!}
+            @include('possible_photos.form', ['submitButtonText' => 'Editar foto pocible'])
         {!! Form::close() !!}
 
-        @stop
+        @<stop></stop>
