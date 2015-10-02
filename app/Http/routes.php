@@ -20,4 +20,7 @@ Route::get('home', 'HomeController@index');
 Route::resource('proyectos', 'ProjectsController');
 Route::resource('modulos', 'ModulesController');
 Route::resource('paginas', 'PagesController');
+Route::resource('imagenes', 'ImagesController');
+Route::resource('fotos_posibles', 'PossiblePhotosController');
+
 

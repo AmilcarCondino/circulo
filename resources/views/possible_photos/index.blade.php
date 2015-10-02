@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1> Lista de paginas </h1>
+            <h1> Lista de fotos_posibles </h1>
         </div>
     </div>
     <div class="row">
@@ -21,32 +21,32 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($pages as $page)
+                @foreach($possible_photos as $possible_photo)
                 <tr>
                     <td>
-                        {{ $page->page_number }}
+                        {{ $possible_photo->possible_photo_number }}
                     </td>
                     <td>
-                        {{ $page->module_id }}
+                        {{ $possible_photo->module_id }}
                     </td>
                     <td>
-                        {{ $page->page_stage }}
+                        {{ $possible_photo->possible_photo_stage }}
                     </td>
                     <td>
-                        {{ $page->layout_stage }}
+                        {{ $possible_photo->layout_stage }}
                     </td>
                     <td>
-                        {{ $page->notes }}
+                        {{ $possible_photo->notes }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['paginas.edit', $page->id]]) !!}
+                        {!! Form::open(['method' => 'get', 'route' => ['fotos_posibles.edit', $possible_photo->id]]) !!}
 
                         {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
 
                         {!! Form::close() !!}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['paginas.destroy', $page->id]]) !!}
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['fotos_posibles.destroy', $possible_photo->id]]) !!}
 
                         {!! Form::submit('Eliminar', array('class'=>'btn btn-sm btn-danger')) !!}
 
@@ -58,7 +58,7 @@
             </table>
 
 
-            <a href="/paginas/create">Crear</a>
+            <a href="/fotos_posibles/create">Crear</a>
         </div>
     </div>
     @stop

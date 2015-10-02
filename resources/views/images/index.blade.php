@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1> Lista de paginas </h1>
+            <h1> Lista de imagines </h1>
         </div>
     </div>
     <div class="row">
@@ -13,40 +13,44 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Numero de pagina</th>
-                    <th>Modulo</th>
-                    <th>Estadio de la pagina</th>
-                    <th>Estadio de Diagramacion</th>
-                    <th>Observaciones</th>
+                    <th>Tipo de Imagen</th>
+                    <th>Asignacion</th>
+                    <th>Estadio</th>
+                    <th>Model</th>
+                    <th>Pedido</th>
+                    <th>Pagina</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($pages as $page)
+                @foreach($images as $image)
                 <tr>
                     <td>
-                        {{ $page->page_number }}
+                        {{ $image->image_sort }}
                     </td>
                     <td>
-                        {{ $page->module_id }}
+                        {{ $image->assigned_to }}
                     </td>
                     <td>
-                        {{ $page->page_stage }}
+                        {{ $image->stage }}
                     </td>
                     <td>
-                        {{ $page->layout_stage }}
+                        {{ $image->model_file }}
                     </td>
                     <td>
-                        {{ $page->notes }}
+                        {{ $image->request }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['paginas.edit', $page->id]]) !!}
+                        {{ $image->parent_page_id }}
+                    </td>
+                    <td>
+                        {!! Form::open(['method' => 'get', 'route' => ['imagenes.edit', $image->id]]) !!}
 
                         {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
 
                         {!! Form::close() !!}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['paginas.destroy', $page->id]]) !!}
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['imagenes.destroy', $image->id]]) !!}
 
                         {!! Form::submit('Eliminar', array('class'=>'btn btn-sm btn-danger')) !!}
 
@@ -58,7 +62,7 @@
             </table>
 
 
-            <a href="/paginas/create">Crear</a>
+            <a href="/imagenes/create">Crear</a>
         </div>
     </div>
     @stop
