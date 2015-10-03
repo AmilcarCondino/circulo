@@ -35,8 +35,9 @@ class ImagesController extends Controller
     public function create()
     {
         //
+        $images = Image::all();
         $page_list = array( '0' => 'Seleccione una Pagina') + Page::lists('page_number', 'id')->all();
-        return view('images.create', compact('page_list'));
+        return view('images.create', compact('page_list', 'images'));
     }
 
     /**

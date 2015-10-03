@@ -10,7 +10,7 @@
         <a href="/fotos_posibles">opciones index</a>
 
         <div class="col-sm-12">
-            {!! Form::open(array('url' => 'fotos_posibles')) !!}
+            {!! Form::model($possible_photos, (array('url' => 'fotos_posibles'))) !!}
                 @include ('possible_photos.form', ['submitButtonText' => 'Crear Pagina'])
             {!! Form::close() !!}
         </div>

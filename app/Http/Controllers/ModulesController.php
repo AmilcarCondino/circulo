@@ -36,10 +36,11 @@ class ModulesController extends Controller
     {
         //
 
+        $modules = Module::all();
         $projects_list = array( '0' => 'Seleccione un Proyecto') + Project::lists('name', 'id')->all();
         $parents_module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
 
-        return view('modules.create', compact('projects_list', 'parents_module_list'));
+        return view('modules.create', compact('projects_list', 'parents_module_list', 'modules'));
 
     }
 

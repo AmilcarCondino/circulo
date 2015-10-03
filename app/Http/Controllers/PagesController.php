@@ -34,8 +34,10 @@ class PagesController extends Controller
     public function create()
     {
         //
+        $pages = Page::all();
         $module_list = array( '0' => 'Seleccione un Modulo') + Module::lists('name', 'id')->all();
-        return view('pages.create', compact('module_list'));
+
+        return view('pages.create', compact('module_list', 'pages'));
     }
 
     /**

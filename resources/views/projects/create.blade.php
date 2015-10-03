@@ -10,7 +10,7 @@
         <a href="/proyectos">proyectos index</a>
 
         <div class="col-sm-12">
-            {!! Form::open(array('url' => 'proyectos')) !!}
+            {!! Form::model($project, (array('url' => 'proyectos'))) !!}
                 @include ('projects.form', ['submitButtonText' => 'Crear Proyecto'])
             {!! Form::close() !!}
         </div>

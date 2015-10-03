@@ -10,7 +10,7 @@
         <a href="/paginas">paginas index</a>
 
         <div class="col-sm-12">
-            {!! Form::open(array('url' => 'paginas')) !!}
+            {!! Form::model($pages, (array('url' => 'paginas'))) !!}
                 @include ('pages.form', ['submitButtonText' => 'Crear Pagina'])
             {!! Form::close() !!}
         </div>

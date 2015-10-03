@@ -10,7 +10,7 @@
         <a href="/modulos">modulos index</a>
 
         <div class="col-sm-12">
-            {!! Form::open(array('url' => 'modulos')) !!}
+            {!! Form::model($modules, (array('url' => 'modulos'))) !!}
                 @include ('modules.form', ['submitButtonText' => 'Crear Modulo'])
             {!! Form::close() !!}
         </div>
