@@ -34,7 +34,7 @@ class PossiblePhotosController extends Controller
     public function create()
     {
         //
-        $possible_photos = PossiblePhoto::all();
+        $possible_photos = new PossiblePhoto();
         $images_list = array( '0' => 'Seleccione una Imagen') + Image::lists('id', 'id')->all();
 
         return view('possible_photos.create', compact('images_list', 'possible_photos'));

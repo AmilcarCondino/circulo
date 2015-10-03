@@ -24,6 +24,7 @@ class CreatePossiblePhotosTable extends Migration
             $table->string('name')->nullable();
             $table->boolean('selected')->nullable();
             $table->boolean('downloaded')->nullable();
+            $table->boolean('rejected')->nullable();
             $table->string('url')->nullable();
             $table->integer('parent_image_id')->unsigned();
             $table->timestamps();

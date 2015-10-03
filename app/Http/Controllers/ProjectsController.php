@@ -32,7 +32,7 @@ class ProjectsController extends Controller
     public function create()
     {
         //
-        $project = Project::all();
+        $project = new Project();
 
         return view('projects.create', compact('project'));
     }

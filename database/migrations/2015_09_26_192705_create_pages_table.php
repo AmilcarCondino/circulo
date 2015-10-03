@@ -15,7 +15,7 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('page_number');
-            $table->integer('module_id');
+            $table->integer('module_id')->unsigned();
             $table->string('page_stage');
             $table->string('layout_stage');
             $table->text('notes')->nullable();

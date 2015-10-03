@@ -12,6 +12,7 @@ class PossiblePhoto extends Model
         'name',
         'selected',
         'downloaded',
+        'rejected',
         'url',
         'parent_image_id'
     ];
