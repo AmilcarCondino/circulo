@@ -27,6 +27,12 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
+
+        $router->model('proyectos', 'App\Project');
+        $router->model('modulos', 'App\Module');
+        $router->model('paginas', 'App\Page');
+        $router->model('fotos_posibles', 'App\PossiblePhoto');
+        $router->model('imagenes', 'App\Image');
     }
 
     /**
