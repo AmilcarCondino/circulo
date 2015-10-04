@@ -32,7 +32,7 @@
                         {{ $module->project_id }}
                     </td>
                     <td>
-                        {{ $module->parent_module_id }}
+                        {{ $module->module_id }}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'get', 'route' => ['modulos.edit', $module->id]]) !!}

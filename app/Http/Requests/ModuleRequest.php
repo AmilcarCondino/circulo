@@ -28,8 +28,8 @@ class ModuleRequest extends Request
             //
             'name' => 'required',
             'projected_total_pages' => 'required|numeric',
-            'project_id' => 'required_if:parent_module_id,0',
-            'parent_module_id' => 'required_without:project_id'
+            'project_id' => 'required_if:module_id,0',
+            'module_id' => 'required_without:project_id'
         ];
     }
 

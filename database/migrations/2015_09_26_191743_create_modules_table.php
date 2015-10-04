@@ -16,7 +16,7 @@ class CreateModulesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('project_id')->unsigned()->nullable();
-            $table->integer('parent_module_id')->unsigned()->nullable();
+            $table->integer('module_id')->unsigned()->nullable();
             $table->integer('projected_total_pages');
             $table->timestamps();
 //

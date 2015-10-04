@@ -23,11 +23,14 @@ class PageRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-            'page_number' => 'require',
-            'module_id' => 'require',
+
+        $rules = [
+
+            'page_number' => 'required',
+            'module_id' => 'required',
 
         ];
+
+        return $rules;
     }
 }

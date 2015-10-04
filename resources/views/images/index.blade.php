@@ -40,7 +40,7 @@
                         {{ $image->request }}
                     </td>
                     <td>
-                        {{ $image->parent_page_id }}
+                        {{ $image->page_id }}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'get', 'route' => ['imagenes.edit', $image->id]]) !!}

@@ -15,4 +15,10 @@ class Page extends Model
         'module_id',
         'notes'
     ];
+
+    public function module()
+    {
+        return $this->belongsTo('App\Module');
+    }
+
 }

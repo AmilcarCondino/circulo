@@ -14,6 +14,12 @@ class PossiblePhoto extends Model
         'downloaded',
         'rejected',
         'url',
-        'parent_image_id'
+        'image_id'
     ];
+
+    public function image()
+    {
+        return $this->belongsTo('App\Image');
+    }
+
 }

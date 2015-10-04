@@ -1,13 +1,7 @@
 <?php
 
-use App\Project;
-use PhpParser\Node\Expr\AssignOp\Mod;
-use Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use App\Module;
-use App\Http\Requests\ModuleRequest;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreatePossiblePhotosTable extends Migration
 {
@@ -26,7 +20,7 @@ class CreatePossiblePhotosTable extends Migration
             $table->boolean('downloaded')->nullable();
             $table->boolean('rejected')->nullable();
             $table->string('url')->nullable();
-            $table->integer('parent_image_id')->unsigned();
+            $table->integer('image_id')->unsigned();
             $table->timestamps();
 
         });

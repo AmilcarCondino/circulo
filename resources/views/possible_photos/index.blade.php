@@ -36,7 +36,7 @@
                         {{ $possible_photo->url }}
                     </td>
                     <td>
-                        {{ $possible_photo->parent_image_id }}
+                        {{ $possible_photo->image_id }}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'get', 'route' => ['fotos_posibles.edit', $possible_photo->id]]) !!}

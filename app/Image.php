@@ -14,6 +14,13 @@ class Image extends Model
         'stage',
         'model_file',
         'request',
-        'parent_page_id'
+        'page_id'
     ];
+
+
+    public function page()
+    {
+        return $this->belongsTo('App\Page');
+    }
+
 }

@@ -11,7 +11,19 @@ class Module extends Model
 
         'name',
         'project_id',
-        'parent_module_id',
+        'module_id',
         'projected_total_pages'
     ];
+
+
+    public function project()
+    {
+        return $this->belongsTo('App\Project');
+    }
+
+    public function module()
+    {
+        return $this->belongsTo('App\Module');
+    }
+
 }

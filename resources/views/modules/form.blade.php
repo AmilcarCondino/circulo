@@ -10,8 +10,8 @@
                 {!! Form::select('project_id', $projects_list, null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::label('parent_module_id', 'Modulo Padre: ') !!}
-                {!! Form::select('parent_module_id', $parents_module_list, null, ['class' => 'validate']) !!}
+                {!! Form::label('module_id', 'Modulo Padre: ') !!}
+                {!! Form::select('module_id', $parents_module_list, null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
                 {!! Form::label('projected_total_pages', 'Paginas Proyectadas: ') !!}

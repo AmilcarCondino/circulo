@@ -20,7 +20,7 @@ class CreateImagesTable extends Migration
             $table->string('stage')->nullable();
             $table->string('model_file')->nullable();
             $table->text('request')->nullable();
-            $table->integer('parent_page_id')->unsigned();
+            $table->integer('page_id')->unsigned();
             $table->timestamps();
 
         });

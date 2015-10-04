@@ -18,8 +18,8 @@
                 {!! Form::textarea('request', null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::label('parent_page_id', 'Pagina: ') !!}
-                {!! Form::select('parent_page_id', $page_list, null, ['class' => 'validate']) !!}
+                {!! Form::label('page_id', 'Pagina: ') !!}
+                {!! Form::select('page_id', $page_list, null, ['class' => 'validate']) !!}
             </div>
         </div>
         <div class="col-sm-6">

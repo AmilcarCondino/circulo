@@ -43,8 +43,8 @@
                 {!! Form::text('url', null, ['class' => 'validate']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::label('parent_image_id', 'Imagen Master: ') !!}
-                {!! Form::select('parent_image_id', $images_list, null, ['class' => 'validate']) !!}
+                {!! Form::label('image_id', 'Imagen Master: ') !!}
+                {!! Form::select('image_id', $images_list, null, ['class' => 'validate']) !!}
             </div>
         <div class="col-sm-6">
             {!! Form::submit($submitButtonText, ['class' => 'btn btn-sm-3 btn-success form-control']) !!}
