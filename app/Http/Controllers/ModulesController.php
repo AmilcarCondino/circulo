@@ -66,9 +66,9 @@ class ModulesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Module $module)
     {
-        //
+        return view('modules.show', compact('module'));
     }
 
     /**
@@ -121,5 +121,27 @@ class ModulesController extends Controller
         if ($module->delete()) {
             return redirect('modulos');
         }
+    }
+
+    /**
+     * Display a listing of the resource based on projects.
+     *
+     * @return Response
+     */
+    public function project(Project $project)
+    {
+        $module = $project->modules;
+        return view('modules.index', compact('module'));
+    }
+
+    /**
+     * Display a listing of the resource based on modules.
+     *
+     * @return Response
+     */
+    public function module(Module $module_id)
+    {
+        $module = $module_id->modules;
+        return view('modules.index', compact('module'));
     }
 }

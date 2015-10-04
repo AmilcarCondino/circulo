@@ -13,6 +13,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Tipo de Imagen</th>
                     <th>Asignacion</th>
                     <th>Estadio</th>
@@ -24,6 +25,9 @@
                 <tbody>
                 @foreach($images as $image)
                 <tr>
+                    <td>
+                        {!! link_to_route('imagenes.show', $image->id, [$image]) !!}
+                    </td>
                     <td>
                         {{ $image->image_sort }}
                     </td>

@@ -63,9 +63,10 @@ class PossiblePhotosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PossiblePhoto $possible_photo)
     {
         //
+        return view('possible_photos.show', compact('possible_photo'));
     }
 
     /**
@@ -118,5 +119,16 @@ class PossiblePhotosController extends Controller
         if ($possible_photos->delete()) {
             return redirect('fotos_posibles');
         }
+    }
+
+    /**
+     * Display a listing of the resource based on images.
+     *
+     * @return Response
+     */
+    public function image(Image $image)
+    {
+        $possible_photo = $image->possible_photo;
+        return view('possible_photos.index', compact('possible_photo'));
     }
 }

@@ -62,9 +62,10 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Image $image)
     {
         //
+        return view('images.show', compact('image'));
     }
 
     /**
@@ -116,5 +117,16 @@ class ImagesController extends Controller
         if ($image->delete()) {
             return redirect('imagenes');
         }
+    }
+
+    /**
+     * Display a listing of the resource based on projects.
+     *
+     * @return Response
+     */
+    public function page(Page $page)
+    {
+        $image = $page->image;
+        return view('pages.index', compact('image'));
     }
 }

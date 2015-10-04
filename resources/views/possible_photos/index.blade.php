@@ -24,7 +24,7 @@
                 @foreach($possible_photos as $possible_photo)
                 <tr>
                     <td>
-                        {{ $possible_photo->name }}
+                        {!! link_to_route('fotos_posibles.show', $possible_photo->name, [$possible_photo]) !!}
                     </td>
                     <td>
                         {{ $possible_photo->selected }}

@@ -23,7 +23,7 @@
                 @foreach($modules as $module)
                 <tr>
                     <td>
-                        {{ $module->name }}
+                        {!! link_to_route('modulos.show', $module->name, [$module]) !!}
                     </td>
                     <td>
                         {{ $module->projected_total_pages }}

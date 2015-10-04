@@ -62,9 +62,10 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Page $page)
     {
         //
+        return view('pages.show', compact('page'));
 
     }
 
@@ -118,5 +119,16 @@ class PagesController extends Controller
         if ($page->delete()) {
             return redirect('paginas');
         }
+    }
+
+    /**
+     * Display a listing of the resource based on modules.
+     *
+     * @return Response
+     */
+    public function module(Module $module)
+    {
+        $page = $module->pages;
+        return view('pages.index', compact('page'));
     }
 }

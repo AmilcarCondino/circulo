@@ -24,7 +24,7 @@
                 @foreach($pages as $page)
                 <tr>
                     <td>
-                        {{ $page->page_number }}
+                        {!! link_to_route('paginas.show', $page->page_number, [$page]) !!}
                     </td>
                     <td>
                         {{ $page->module_id }}
