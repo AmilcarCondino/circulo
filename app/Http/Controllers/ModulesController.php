@@ -37,8 +37,8 @@ class ModulesController extends Controller
         //
 
         $modules = new Module();
-        $projects_list = array( '0' => 'Seleccione un Proyecto') + Project::lists('name', 'id')->all();
-        $parents_module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
+        $projects_list = Project::lists('name', 'id');
+        $parents_module_list = Module::lists('name', 'id');
 
         return view('modules.create', compact('projects_list', 'parents_module_list', 'modules'));
 
@@ -77,13 +77,11 @@ class ModulesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Module $module)
     {
         //
-        $module = Module::findOrFail($id);
-
-        $projects_list = array( '0' => 'Seleccione un Proyecto') + Project::lists('name', 'id')->all();
-        $parents_module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
+        $projects_list = Project::lists('name', 'id');
+        $parents_module_list = Module::lists('name', 'id');
 
         return view('modules.edit', compact('module', 'projects_list', 'parents_module_list'));
     }
@@ -95,7 +93,7 @@ class ModulesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ModuleRequest $request, $id)
+    public function update(Module $module, ModuleRequest $request)
     {
         //
         $module = Module::findOrFail($id);
@@ -113,11 +111,9 @@ class ModulesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Module $module)
     {
         //
-        $module = Module::findOrFail($id);
-
         if ($module->delete()) {
             return redirect('modulos');
         }

@@ -55,11 +55,7 @@
                         {{ $project->isbn_number }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['proyectos.edit', $project->id]]) !!}
-
-                            {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
-
-                        {!! Form::close() !!}
+                        {!! link_to_route('proyectos.edit', 'Editar', [$project->id], ['class' => 'btn btn-sm btn-primary']) !!}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['proyectos.destroy', $project->id]]) !!}

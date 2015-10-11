@@ -36,7 +36,7 @@ class ImagesController extends Controller
     {
         //
         $images = new Image();
-        $page_list = array( '0' => 'Seleccione una Pagina') + Page::lists('page_number', 'id')->all();
+        $page_list = Page::lists('page_number', 'id');
         return view('images.create', compact('page_list', 'images'));
     }
 
@@ -74,12 +74,10 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Image $image)
     {
         //
-        $image = Image::findOrFail($id);
-
-        $page_list = array( '0' => 'Seleccione una Pagina') + Page::lists('page_number', 'id')->all();
+        $page_list = Page::lists('page_number', 'id');
 
         return view('images.edit', compact('image', 'page_list'));
     }
@@ -91,7 +89,7 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ImageRequest $request, $id)
+    public function update(Image $image, ImageRequest $request)
     {
         //
         $image = Image::findOrFail($id);
@@ -109,11 +107,9 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Image $image)
     {
         //
-        $image = Image::findOrFail($id);
-
         if ($image->delete()) {
             return redirect('imagenes');
         }

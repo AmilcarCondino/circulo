@@ -35,7 +35,7 @@ class PossiblePhotosController extends Controller
     {
         //
         $possible_photos = new PossiblePhoto();
-        $images_list = array( '0' => 'Seleccione una Imagen') + Image::lists('id', 'id')->all();
+        $images_list = Image::lists('id', 'id');
 
         return view('possible_photos.create', compact('images_list', 'possible_photos'));
 
@@ -75,12 +75,10 @@ class PossiblePhotosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PossiblePhoto $possible_photos)
     {
         //
-        $possible_photos = PossiblePhoto::findOrFail($id);
-
-        $images_list = array( '0' => 'Seleccione una Imagen') + Image::lists('id')->all();
+        $images_list = Image::lists('id');
 
         return view('possible_photos.edit', compact('images_list', 'possible_photos'));
 
@@ -93,10 +91,9 @@ class PossiblePhotosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PossiblePhotoRequest $request, $id)
+    public function update(PossiblePhoto $possible_photos, PossiblePhotoRequest $request)
     {
         //
-        $possible_photos = PossiblePhoto::findOrFail($id);
         $input = Request::all();
 
 
@@ -111,11 +108,9 @@ class PossiblePhotosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(PossiblePhoto $possible_photos)
     {
         //
-        $possible_photos = PossiblePhoto::findOrFail($id);
-
         if ($possible_photos->delete()) {
             return redirect('fotos_posibles');
         }

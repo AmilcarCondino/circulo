@@ -14,4 +14,5 @@
             @include('possible_photos.form', ['submitButtonText' => 'Editar foto pocible'])
         {!! Form::close() !!}
 
-        @<stop></stop>
+
+@stop

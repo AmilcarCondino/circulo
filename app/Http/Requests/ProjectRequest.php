@@ -32,6 +32,10 @@ class ProjectRequest extends Request
 
         ];
 
+        if($project = $this->route('proyectos')){
+            $rules['name'] = 'unique:projects,name,'.$project->id.'\required\min:3';
+        }
+
         return $rules;
     }
 }

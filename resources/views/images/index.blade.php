@@ -47,11 +47,7 @@
                         {{ $image->page_id }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['imagenes.edit', $image->id]]) !!}
-
-                        {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
-
-                        {!! Form::close() !!}
+                        {!! link_to_route('imagenes.edit', 'Editar nuevo', [$image->id], ['class' => 'btn btn-sm btn-primary']) !!}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['imagenes.destroy', $image->id]]) !!}

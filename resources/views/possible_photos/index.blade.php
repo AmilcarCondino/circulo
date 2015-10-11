@@ -39,11 +39,7 @@
                         {{ $possible_photo->image_id }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['fotos_posibles.edit', $possible_photo->id]]) !!}
-
-                        {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
-
-                        {!! Form::close() !!}
+                        {!! link_to_route('fotos_posibles.edit', 'Editar', [$possible_photo->id], ['class' => 'btn btn-sm btn-primary']) !!}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['fotos_posibles.destroy', $possible_photo->id]]) !!}

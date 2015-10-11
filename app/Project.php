@@ -19,4 +19,9 @@ class Project extends Model
         'notes',
         'isbn_number'
     ];
+
+    public function modules()
+    {
+        return $this->hasMany('App\Module');
+    }
 }

@@ -70,11 +70,9 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
         //
-        $project = Project::findOrFail($id);
-
         return view('projects.edit', compact('project'));
     }
 
@@ -85,10 +83,9 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProjectRequest $request, $id)
+    public function update(Project $project, ProjectRequest $request)
     {
         //
-        $project = Project::findOrFail($id);
         $input = Request::all();
 
         $project->update($input);
@@ -102,11 +99,9 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
         //
-        $project = Project::findOrFail($id);
-
         if ($project->delete()) {
             return redirect('proyectos');
         }

@@ -35,7 +35,7 @@ class PagesController extends Controller
     {
         //
         $pages = new Page();
-        $module_list = array( '0' => 'Seleccione un Modulo') + Module::lists('name', 'id')->all();
+        $module_list = Module::lists('name', 'id');
 
         return view('pages.create', compact('module_list', 'pages'));
     }
@@ -75,12 +75,10 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Page $page)
     {
         //
-        $page = Page::findOrFail($id);
-
-        $module_list =array( '0' => 'Modulo Padre') + Module::lists('name', 'id')->all();
+        $module_list = Module::lists('name', 'id');
 
         return view('pages.edit', compact('page', 'module_list'));
 
@@ -93,10 +91,9 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request, $id)
+    public function update(Page $page, PageRequest $request)
     {
         //
-        $page = Page::findOrFail($id);
         $input = Request::all();
 
 
@@ -111,11 +108,9 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Page $page)
     {
         //
-        $page = Page::findOrFail($id);
-
         if ($page->delete()) {
             return redirect('paginas');
         }

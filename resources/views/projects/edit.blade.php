@@ -14,4 +14,4 @@
             @include('projects.form', ['submitButtonText' => 'Editar Proyecto'])
         {!! Form::close() !!}
 
-        @stop
+@stop

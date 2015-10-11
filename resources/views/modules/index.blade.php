@@ -35,11 +35,7 @@
                         {{ $module->module_id }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['modulos.edit', $module->id]]) !!}
-
-                            {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
-
-                        {!! Form::close() !!}
+                        {!! link_to_route('modulos.edit', 'Editar', [$module->id], ['class' => 'btn btn-sm btn-primary']) !!}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['modulos.destroy', $module->id]]) !!}

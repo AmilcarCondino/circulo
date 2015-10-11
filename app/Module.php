@@ -26,4 +26,9 @@ class Module extends Model
         return $this->belongsTo('App\Module');
     }
 
+    public function pages()
+    {
+        return $this->hasMany('App\Page');
+    }
+
 }

@@ -23,4 +23,8 @@ class Image extends Model
         return $this->belongsTo('App\Page');
     }
 
+    public function possible_photos()
+    {
+        return $this->hasMany('App\PossiblePhoto');
+    }
 }

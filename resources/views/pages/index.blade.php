@@ -39,11 +39,7 @@
                         {{ $page->notes }}
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'get', 'route' => ['paginas.edit', $page->id]]) !!}
-
-                        {!! Form::submit('Editar', array('class'=>'btn btn-sm btn-primary')) !!}
-
-                        {!! Form::close() !!}
+                        {!! link_to_route('paginas.edit', 'Editar', [$page->id], ['class' => 'btn btn-sm btn-primary']) !!}
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['paginas.destroy', $page->id]]) !!}
