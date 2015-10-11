@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row">
-        <a href="/possible_photos/create">Crear</a>
+        <a href="/possible_photos/create" class="btn btn-sm btn-primary">Crear</a>
     </div>
 </div>
 @stop

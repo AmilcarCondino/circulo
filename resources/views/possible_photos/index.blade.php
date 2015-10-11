@@ -54,7 +54,7 @@
             </table>
 
 
-            <a href="/fotos_posibles/create">Crear</a>
+            <a href="/fotos_posibles/create" class="btn btn-sm btn-primary">Crear</a>
         </div>
     </div>
     @stop

@@ -78,7 +78,7 @@ class PossiblePhotosController extends Controller
     public function edit(PossiblePhoto $possible_photos)
     {
         //
-        $images_list = Image::lists('id');
+        $images_list = Image::lists('id', 'id');
 
         return view('possible_photos.edit', compact('images_list', 'possible_photos'));
 

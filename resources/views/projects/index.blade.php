@@ -68,9 +68,9 @@
                 @endforeach
                 </tbody>
             </table>
-
-
-            <a href="/proyectos/create">Crear</a>
+            <a href="/proyectos/create" class="btn btn-sm btn-primary">Crear</a>
         </div>
     </div>
-    @stop
+</div>
+
+@stop

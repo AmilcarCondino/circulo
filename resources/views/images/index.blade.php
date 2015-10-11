@@ -62,7 +62,7 @@
             </table>
 
 
-            <a href="/imagenes/create">Crear</a>
+            <a href="/imagenes/create" class="btn btn-sm btn-primary">Crear</a>
         </div>
     </div>
     @stop

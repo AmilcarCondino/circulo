@@ -7,8 +7,6 @@
         <h1> Proyectos create page </h1>
     </div>
     <div class="col-sm-12">
-        <a href="/proyectos">proyectos index</a>
-
         <div class="col-sm-12">
             {!! Form::model($project, (array('url' => 'proyectos'))) !!}
                 @include ('projects.form', ['submitButtonText' => 'Crear Proyecto'])

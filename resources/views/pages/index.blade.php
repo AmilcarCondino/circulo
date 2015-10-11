@@ -54,7 +54,7 @@
             </table>
 
 
-            <a href="/paginas/create">Crear</a>
+            <a href="/paginas/create"  class="btn btn-sm btn-primary">Crear</a>
         </div>
     </div>
     @stop

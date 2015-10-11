@@ -16,7 +16,9 @@
 
     </head>
     <body>
-    <a href="/home"><h3>Home</h3></a></li>
+    <div>
+        <a href="/home"><h3>Home</h3></a></li>
+    </div>
     @yield('content')
 
 

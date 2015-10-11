@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row">
-        <a href="/modulos/create">Crear</a>
+        <a href="/modulos/create" class="btn btn-sm btn-primary">Crear</a>
     </div>
 </div>
 @stop
