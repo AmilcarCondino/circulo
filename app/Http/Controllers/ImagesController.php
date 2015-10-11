@@ -49,7 +49,7 @@ class ImagesController extends Controller
     public function store(ImageRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
         Image::create($input);
 
@@ -92,9 +92,7 @@ class ImagesController extends Controller
     public function update(Image $image, ImageRequest $request)
     {
         //
-        $image = Image::findOrFail($id);
-        $input = Request::all();
-
+        $input = $request->all();
 
         $image->update($input);
 

@@ -53,7 +53,7 @@ class ModulesController extends Controller
     public function store(ModuleRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
         Module::create($input);
 
@@ -96,9 +96,7 @@ class ModulesController extends Controller
     public function update(Module $module, ModuleRequest $request)
     {
         //
-        $module = Module::findOrFail($id);
-        $input = Request::all();
-
+        $input = $request->all();
 
         $module->update($input);
 

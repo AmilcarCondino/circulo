@@ -46,7 +46,7 @@ class ProjectsController extends Controller
     public function store(ProjectRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
         Project::create($input);
 
@@ -86,7 +86,7 @@ class ProjectsController extends Controller
     public function update(Project $project, ProjectRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
         $project->update($input);
 

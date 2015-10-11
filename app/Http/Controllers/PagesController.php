@@ -49,7 +49,7 @@ class PagesController extends Controller
     public function store(PageRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
         Page::create($input);
 
@@ -94,8 +94,7 @@ class PagesController extends Controller
     public function update(Page $page, PageRequest $request)
     {
         //
-        $input = Request::all();
-
+        $input = $request->all();
 
         $page->update($input);
 

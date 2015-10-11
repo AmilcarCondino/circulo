@@ -50,7 +50,7 @@ class PossiblePhotosController extends Controller
     public function store(PossiblePhotoRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
         PossiblePhoto::create($input);
 
@@ -94,7 +94,7 @@ class PossiblePhotosController extends Controller
     public function update(PossiblePhoto $possible_photos, PossiblePhotoRequest $request)
     {
         //
-        $input = Request::all();
+        $input = $request->all();
 
 
         $possible_photos->update($input);
