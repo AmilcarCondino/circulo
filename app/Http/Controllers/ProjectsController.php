@@ -50,7 +50,7 @@ class ProjectsController extends Controller
 
         Project::create($input);
 
-        return redirect('proyectos');
+        return redirect('modulos/create');
     }
 
     /**

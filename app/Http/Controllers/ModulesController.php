@@ -21,9 +21,13 @@ class ModulesController extends Controller
     public function index()
     {
         //
-        $modules = Module::orderBy('created_at', 'ASC')->get();
+        $modules = Module::where('project_id', '=', $_GET)->get();
 
-        return view('modules.index', compact('modules'));
+        $existing_modules_count = Module::where('project_id', '=', $_GET)->count();
+        $projected_modules = Project::where('id', '=', $_GET)->pluck('projected_total_modules');
+        $modules_count = $projected_modules - $existing_modules_count;
+
+        return view('modules.index', compact('modules', 'modules_count'));
 
     }
 

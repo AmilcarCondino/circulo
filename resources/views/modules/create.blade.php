@@ -8,7 +8,6 @@
     </div>
     <div class="col-sm-12">
         <a href="/modulos">modulos index</a>
-
         <div class="col-sm-12">
             {!! Form::model($modules, (array('url' => 'modulos'))) !!}
                 @include ('modules.form', ['submitButtonText' => 'Crear Modulo'])

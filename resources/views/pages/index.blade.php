@@ -7,6 +7,7 @@
         <div class="col-sm-12">
             <h1> Lista de paginas </h1>
         </div>
+        <div><h3>Modulos faltantes: {!! $pages_count !!}</h3></div>
     </div>
     <div class="row">
         <div class="table table-hover">

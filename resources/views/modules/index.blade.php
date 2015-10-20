@@ -7,6 +7,7 @@
         <div class="col-sm-12">
             <h1> Lista de modulos </h1>
         </div>
+        <div><h3>Modulos faltantes: {!! $modules_count !!}</h3></div>
     </div>
     <div class="row">
         <div class="table table-hover">
@@ -23,7 +24,7 @@
                 @foreach($modules as $module)
                 <tr>
                     <td>
-                        {!! link_to_route('modulos.show', $module->name, [$module]) !!}
+                        {!! link_to_route('paginas.index', $module->name, ['module_id' => $module->id]) !!}
                     </td>
                     <td>
                         {{ $module->projected_total_pages }}

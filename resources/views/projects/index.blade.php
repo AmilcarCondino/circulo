@@ -28,7 +28,7 @@
                 @foreach($projects as $project)
                 <tr>
                     <td>
-                        {{ $project->name }}
+                        {!! link_to_route('modulos.index', $project->name, ['project_id' => $project->id]) !!}
                     </td>
                     <td>
                         {{ $project->authors }}

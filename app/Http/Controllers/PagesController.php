@@ -21,9 +21,13 @@ class PagesController extends Controller
     public function index()
     {
         //
-        $pages = Page::orderBy('page_number', 'ASC')->get();
+        $pages = Page::where('module_id', '=', $_GET)->get();
 
-        return view('pages.index', compact('pages'));
+        $existing_pages_count = Page::where('module_id', '=', $_GET)->count();
+        $projected_pages = Module::where('id', '=', $_GET)->pluck('projected_total_pages');
+        $pages_count = $projected_pages - $existing_pages_count;
+
+        return view('pages.index', compact('pages', 'pages_count'));
     }
 
     /**
