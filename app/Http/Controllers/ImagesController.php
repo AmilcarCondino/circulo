@@ -8,6 +8,7 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\PossiblePhoto;
 use App\Page;
 use App\Image;
 use App\Http\Requests\ImageRequest;
@@ -22,9 +23,15 @@ class ImagesController extends Controller
     public function index()
     {
         //
-        $images = Image::orderBy('id', 'ASC')->get();
 
-        return view('images.index', compact('images'));
+        $images = Image::where('page_id', '=', $_GET)->get();
+
+        $possible_photos = PossiblePhoto::orderBy('created_at', 'ASC')->get();
+
+        return view('images.index', compact('images', 'possible_photos'));
+
+
+
     }
 
     /**

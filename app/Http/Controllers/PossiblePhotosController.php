@@ -21,7 +21,10 @@ class PossiblePhotosController extends Controller
     public function index()
     {
         //
-        $possible_photos = PossiblePhoto::orderBy('created_at', 'ASC')->get();
+
+        $possible_photos = PossiblePhoto::where('page_id', '=', $_GET)->get();
+
+//        $possible_photos = PossiblePhoto::orderBy('created_at', 'ASC')->get();
 
         return view('possible_photos.index', compact('possible_photos'));
     }

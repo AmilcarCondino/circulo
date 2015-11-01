@@ -9,7 +9,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="table table-hover">
+        @foreach($images as $image)
+        <div class="table table-bordered">
             <table class="table">
                 <thead>
                 <tr>
@@ -23,7 +24,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($images as $image)
                 <tr>
                     <td>
                         {!! link_to_route('imagenes.show', $image->id, [$image]) !!}
@@ -57,12 +57,56 @@
                         {!! Form::close() !!}
                     </td>
                 </tr>
-                @endforeach
+                    <table class="table ">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Seleccionado</th>
+                            <th>Descargado</th>
+                            <th>URL</th>
+                            <th>Id de Imagen</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($possible_photos as $possible_photo)
+                        @if ( $possible_photo->image_id === $image->id)
+                        <tr class="info">
+                            <td>
+                                {!! link_to_route('fotos_posibles.show', $possible_photo->name, [$possible_photo]) !!}
+                            </td>
+                            <td>
+                                {{ $possible_photo->selected }}
+                            </td>
+                            <td>
+                                {{ $possible_photo->downloaded }}
+                            </td>
+                            <td>
+                                {{ $possible_photo->url }}
+                            </td>
+                            <td>
+                                {{ $possible_photo->image_id }}
+                            </td>
+                            <td>
+                                {!! link_to_route('fotos_posibles.edit', 'Editar', [$possible_photo->id], ['class' => 'btn btn-sm btn-primary']) !!}
+                            </td>
+                            <td>
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['fotos_posibles.destroy', $possible_photo->id]]) !!}
+
+                                {!! Form::submit('Eliminar', array('class'=>'btn btn-sm btn-danger')) !!}
+
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                        @endif
+                        @endforeach
+                        </tbody>
+                    </table>
                 </tbody>
             </table>
-
-
-            <a href="/imagenes/create" class="btn btn-sm btn-primary">Crear</a>
+            <a href="/fotos_posibles/create" class="btn btn-sm btn-success">Crear Foto</a>
         </div>
+        @endforeach
+
+        <a href="/imagenes/create" class="btn btn-sm btn-primary">Crear</a>
     </div>
     @stop

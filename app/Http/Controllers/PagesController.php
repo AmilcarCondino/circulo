@@ -7,6 +7,7 @@ use PhpParser\Node\Expr\AssignOp\Mod;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Image;
 
 use App\Page;
 use App\Http\Requests\PageRequest;
@@ -69,7 +70,9 @@ class PagesController extends Controller
     public function show(Page $page)
     {
         //
-        return view('pages.show', compact('page'));
+
+
+        return view('pages.show', compact('page', 'images'));
 
     }
 

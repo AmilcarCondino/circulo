@@ -7,7 +7,7 @@
         <div class="col-sm-12">
             <h1> Lista de paginas </h1>
         </div>
-        <div><h3>Modulos faltantes: {!! $pages_count !!}</h3></div>
+        <div><h3>PITOS Paginas faltantes: {!! $pages_count !!}</h3></div>
     </div>
     <div class="row">
         <div class="table table-hover">
@@ -25,7 +25,7 @@
                 @foreach($pages as $page)
                 <tr>
                     <td>
-                        {!! link_to_route('paginas.show', $page->page_number, [$page]) !!}
+                        {!! link_to_route('imagenes.index', $page->page_number, ['page_id' => $page->id]) !!}
                     </td>
                     <td>
                         {{ $page->module_id }}
